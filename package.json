@@ -1,0 +1,34 @@
+{
+  "name": "olasilik-ve-istatistik",
+  "version": "1.0.0",
+  "description": "olasilik dersi grup calismasi",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatiiates/olasilik-ve-istatistik.git"
+  },
+  "keywords": [
+    "olasilik",
+    "istatistik",
+    "odev",
+    "grup",
+    "calisma"
+  ],
+  "author": "Erdogan TURPCU, Ebru YASAR, Fatih ATES",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fatiiates/olasilik-ve-istatistik/issues"
+  },
+  "homepage": "https://github.com/fatiiates/olasilik-ve-istatistik#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "animate.css": "^3.7.2",
+    "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
+    "hover.css": "^2.3.2",
+    "jquery": "^3.4.1"
+  }
+}

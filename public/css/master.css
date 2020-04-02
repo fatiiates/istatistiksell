@@ -1,0 +1,22 @@
+.auto-height{
+  height:auto!important;
+}
+.z-index-99{
+  z-index: 99;
+}
+.angle-double-down{
+  transition: .3s;
+}
+.angle-double-down:hover{
+  color:#28a745!important;
+}
+
+/* override yapılan classlar */
+
+.input100{
+  padding: 25px!important;
+  resize:none;
+}
+.wrap-input100{
+  margin: 0 auto;
+}
