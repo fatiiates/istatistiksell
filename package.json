@@ -4,7 +4,7 @@
   "description": "olasilik dersi grup calismasi",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start":"node index.js"
   },
   "repository": {
     "type": "git",
