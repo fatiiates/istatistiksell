@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Node modülleri // Başlangıç -->
+    <link href="../node_static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../node_static/animate.css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="../node_static/hover.css/css/hover-min.css" rel="stylesheet" type="text/css">
+    <link href="../node_static/@fortawesome/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../node_static/@fortawesome/fontawesome-free/css/brands.css" rel="stylesheet" type="text/css">
+    <link href="../node_static/@fortawesome/fontawesome-free/css/regular.css" rel="stylesheet" type="text/css">
+    <link href="../node_static/@fortawesome/fontawesome-free/css/solid.css" rel="stylesheet" type="text/css">
+
+    <!-- Node modülleri // Son -->
+    <!-- Static modüller // Başlangıç -->
+    <link rel="stylesheet" href="../static/css/master.css">
+    <link rel="stylesheet" href="../static/css/login-util.css">
+    <link rel="stylesheet" href="../static/css/login-man.css">
+    <!-- Static modüller // Başlangıç -->
+
+    <title>
+      <%- title %>
+    </title>
+    <!-- Static modüller // Son -->
+  </head>
+  <body>
+    <header id="index-header" class="animated fadeIn border-bottom position-relative z-index-99">
+      <div class="col-md-12 justify-content-center d-flex p-4" style="background-color: <%- page == 'how-to-work' ? 'darkmagenta':'rebeccapurple' %>">
+        <h1 class="text-light">
+          Hemen şimdi
+          <%- page == 'how-to-work' ? 'kullanmaya başla!':'nasıl çalıştığını öğrenin!' %>
+        </h1>
+        <div class="col-md-1 text-right">
+          <a href="<%- page == 'how-to-work' ? '/':'/how-to-work' %>"><i class="fas fa-angle-double-right fa-3x mt-1 hvr-wobble-horizontal" style="color:#ffe484"></i></a>
+        </div>
+      </div>
+      <nav class="col-md-12 navbar navbar-expand-lg navbar-light justify-content-center d-flex bg-dark">
+        <a class="navbar-brand text-white hvr-underline-from-left" href="#0">Olasılık ve İstatistik</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="<%- page == 'index' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
+              <a class="nav-link <%- page == 'index' ? 'text-dark':'text-white' %>" href="/">Başla <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="<%- page == 'how-to-work' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
+              <a class="nav-link <%- page == 'how-to-work' ? 'text-dark':'text-light' %>" href="/how-to-work">Nasıl Çalışır ?</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link text-light dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Mod</a>
+                <a class="dropdown-item" href="#">Aritmetik Ortalama</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="<%- page == 'contact' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
+              <a class="nav-link <%- page == 'contact' ? 'text-dark':'text-light' %>" href="/contact"  aria-disabled="true">Bize Ulaşın</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
