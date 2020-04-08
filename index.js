@@ -47,6 +47,19 @@ app.get("/how-to-work", function(req,res) {
 
 });
 
+// TEST SAYFASI
+
+app.get("/sonuc", function(req,res) {
+
+	res.render(__dirname+'/view/sonuc.ejs', {
+		title: 'Olasılık | Sonuç ?',
+		page:'sonuc',
+		data: {bio:'bla bla bla...',twitter: '@sfdgsfd', instagram: '@gfds.jpeg'}
+	});
+
+});
+
+
 
 // YENİ ROUTER BAŞLATILIYOR
 app.use('/', router);

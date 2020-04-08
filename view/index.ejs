@@ -1,25 +1,27 @@
 
     <%- include('./components/header') %>
     <div class="col-md-12 d-flex justify-content-center p-0">
-      <div class="animated fadeIn col-md-12 justify-content-center text-center p-0 pb-5 pt-5">
-          <p class="display-3 p-b-26" >Adım 1</p>
-          <i class="hvr-wobble-vertical fas fa-angle-double-down fa-4x angle-double-down p-b-26 text-muted" ></i>
-          <label for="data_set" class="h3">
-            Veri setinizi giriniz;<br>
-            <span class="h5">
-              (Verilerinizi virgül ile ayırınız bkz:11,123,543,6345...)
-            </span>
-          </label>
-          <div id="input_area" class="col-md-6 wrap-input100 validate-input m-b-36 p-0">
-            <textarea id="data_set" onmouseout="dataSetOnMouseUp()" name="data_set" class="auto-height input100" rows="8" cols="80"></textarea>
-            <span class="focus-input100"></span>
-          </div>
-          <div id="info_box">
-          </div>
-          <button  type="submit" class="btn btn-success btn-lg hvr-sweep-to-right rounded-0 border-0 fs-22">
-            Diğer adıma ilerle&nbsp;&nbsp;
-            <i class="fas fa-hand-point-right"></i>
-          </button>
-      </div>
+      <form class="col-md-12 m-0 p-0" action="index.html" method="post">
+        <div class="animated fadeIn col-md-12 justify-content-center text-center p-0 pb-5 pt-5">
+            <p class="display-3 p-b-26" >Haydi başlayalım!</p>
+            <i class="hvr-wobble-vertical fas fa-angle-double-down fa-4x angle-double-down p-b-26 text-muted" ></i>
+            <label for="data_set" class="h3">
+              Veri setinizi giriniz;<br>
+              <span class="h5">
+                (Verilerinizi virgül ile ayırınız bkz:11,123,543,6345...)
+              </span>
+            </label>
+            <div id="input_area" class="col-md-6 wrap-input100 validate-input m-b-36 p-0">
+              <textarea id="data_set" onkeyup="dataSetOnMouseUp()" name="data_set" class="auto-height input100" rows="8" cols="80"></textarea>
+              <span class="focus-input100"></span>
+            </div>
+            <div id="info_box">
+            </div>
+            <button  type="button" class="btn btn-success hvr-bounce-to-right btn-lg rounded-0 border-0 fs-22 m-3">
+              Sonucu Göster &nbsp;&nbsp;
+              <i class="fas fa-hand-point-right"></i>
+            </button>
+        </div>
+      </form>
     </div>
     <%- include('./components/footer') %>

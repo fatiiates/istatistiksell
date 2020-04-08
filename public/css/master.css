@@ -4,6 +4,9 @@
 .auto-height{
   height:auto!important;
 }
+.z-index-9{
+  z-index: 9;
+}
 .z-index-99{
   z-index: 99;
 }
@@ -24,4 +27,18 @@
 }
 .wrap-input100{
   margin: 0 auto;
+}
+.sidebar-link{
+  color:#818181!important;
+}
+#sidebar label {
+  cursor:pointer;
+}
+#content {
+  overflow: hidden;
+}
+@media screen and (max-width:1000px) {
+  #content {
+    padding: 0!important;
+  }
 }

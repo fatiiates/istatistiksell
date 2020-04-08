@@ -1,0 +1,237 @@
+<%- include('./components/header') %>
+<link rel="stylesheet" href="/static/css/sidebar/style.css">
+<link rel="stylesheet" href="/static/css/_checkbox.css">
+<link rel="stylesheet" href="/static/css/style.min.css">
+<div class="wrapper d-flex align-items-stretch">
+<nav id="sidebar" >
+  <div class="z-index-9 custom-menu">
+    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+      <i class="fa fa-bars"></i>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+  <div class="p-4">
+    <h1><a href="index.html" class="logo">Olasılık ve İstatistik <span>Konular</span></a></h1>
+    <ul class="list-unstyled components mb-5">
+      <li class="d-flex mt-2 mb-3">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_histogram" data-val="histogram" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_mod">Histogram</label>
+      </li>
+      <li class="d-flex mt-2 mb-3">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_mod" data-val="mod" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_mod">Mod</label>
+      </li>
+      <li class="d-flex mt-2 mb-3">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_standart_sapma" data-val="standart_sapma" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_standart_sapma">Standart Sapma</label>
+      </li>
+      <li class="d-flex mt-2 mb-3">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_medyan" data-val="medyan" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_medyan">Medyan</label>
+      </li>
+      <li class="d-flex mt-2 mb-3">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_varyans" data-val="varyans" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_varyans">Varyans</label>
+      </li>
+      <li class="d-flex mt-2">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_ortalama_mutlak_sapma" data-val="ortalama_mutlak_sapma" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_ortalama_mutlak_sapma">Ortalama Mutlak Sapma</label>
+      </li>
+      <li class="d-flex mt-2">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_degisken_katsayisi" data-val="degisken_kat_sayi" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_degisken_katsayisi">Değişken Kat Sayısı</label>
+      </li>
+      <li class="d-flex mt-2">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_harmonik" data-val="harmonik_ortalama" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_harmonik">Harmonik Ortalama</label>
+      </li>
+      <li class="d-flex mt-2">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_aritmetik" data-val="aritmetik_ortalama" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_aritmetik">Aritmetik Ortalama</label>
+      </li>
+      <li class="d-flex mt-2">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_geometrik" data-val="geometrik_ortalama" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_geometrik">Geometrik Ortalama</label>
+      </li>
+      <li class="d-flex mt-2">
+        <div class="button b2 m-0 p-0" id="button-15">
+          <input type="checkbox" name="checkbox_t_deger" data-val="t_deger" class="checkbox">
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_t_deger">T Değeri</label>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="content" class="p-4 p-md-5 pt-5 justify-content-center d-flex">
+  <div class="col-md-8 align-items-center m-0 p-0">
+    <div id="info" class="col-md-12 mt-5">
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">İşlem Tamam!</h4>
+        <p>Şimdi sol tafarındaki menüden istediğin konu başlıklarını seçebilirsin.</p>
+        <hr>
+        <p class="mb-0">Başka veri girmek istersen <a href="/">tıkla</a>.</p>
+      </div>
+    </div>
+
+    <div id="histogram" name="div_histogram" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Histogram</h1></u><br>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Bar Chart</h4>
+          <div>
+            <canvas id="bar-chart" height="150"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="mod" name="div_mod" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Mod</h1></u><br>
+      <h3>45</h3>
+
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="standart_sapma" name="div_standart_sapma" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Standart Sapma</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="medyan" name="div_medyan" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Medyan</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="varyans" name="div_varyans" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Varyans</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="ortalama_mutlak_sapma" name="animated bounceIn div_ortalama_mutlak_sapma" class="d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Ortalama Mutlak Sapma</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="degisken_kat_sayi" name="div_degisken_kat_sayi" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Değişken Kat Sayısı</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="harmonik_ortalama" name="div_harmonik_ortalama" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Harmonik Ortalama</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="aritmetik_ortalama" name="div_aritmetik_ortalama" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Aritmetik Ortalama</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="geometrik_ortalama" name="div_geometrik_ortalama" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>Geometrik Ortalama</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div id="t_deger" name="div_t_deger" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+      <u><h1>T değeri</h1></u><br>
+      <h3>45</h3>
+      <div class="col-md-12 d-flex justify-content-center" >
+        <div class="col-md-6">
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<%- include('./components/footer') %>
+<script type="text/javascript" src="/node_static/jquery-ui-dist/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/static/js/sidebar/popper.js"></script>
+<script type="text/javascript" src="/static/js/sidebar/main.js"></script>
+<!-- HİSTOGRAM GRAFİK İÇİN  -->
+<script type="text/javascript" src="static/js/components/feather.min.js"></script>
+<script type="text/javascript" src="static/js/components/pages/chartjs/chartjs.init.js"></script>
+<script type="text/javascript" src="static/js/components/libs/chart.js/dist/Chart.min.js"></script>
