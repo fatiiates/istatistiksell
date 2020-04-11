@@ -29,33 +29,42 @@
     <!-- Static modüller // Son -->
   </head>
   <body>
-    <header id="index-header" class="animated fadeIn position-relative z-index-99">
-      <div class="col-md-12 justify-content-center d-flex align-items-center text-center p-4" style="background-color: <%- page == 'how-to-work' ? 'darkmagenta':'rebeccapurple' %>">
-        <h1 class="text-light">
-          Hemen şimdi
-          <%- page == 'how-to-work' ? 'kullanmaya başla!':'nasıl çalıştığını öğrenin!' %>
+    <header id="index-header" class="animated fadeIn shadow-lg position-relative z-index-99">
+      <div class="<%- page == 'sonuc' ? 'bg-success':'' %> col-md-12 justify-content-center d-flex align-items-center text-center p-4" style="background-color: <%- page == 'how-to-work' ? 'darkmagenta':'rebeccapurple' %>">
+        <h1 class="mb-0 h1 text-light">
+
+          <% if(page != 'sonuc'){ %>
+            Hemen şimdi
+            <%- page == 'how-to-work' ? 'kullanmaya başla!':'nasıl çalıştığını öğrenin!' %>
+          <% } else{ %>
+            <%- page == 'sonuc' ? 'Bravo! İşlem tamam.':'' %>
+          <% } %>
         </h1>
-        <a class="ml-3 mt-0" href="<%- page == 'how-to-work' ? '/':'/how-to-work' %>"><i class="fas fa-angle-double-right fa-3x mt-0 " style="margin-top: -5px!important;color:#ffe484"></i></a>
+        <% if(page != 'sonuc'){ %>
+        <a class="ml-5 mt-0" href="<%- page == 'how-to-work' ? '/':'/how-to-work' %>"><i class="fas fa-angle-double-right fa-3x mt-0 hvr-wobble-horizontal " style="margin-top: 5px!important;color:#ffe484"></i></a>
+        <% } %>
       </div>
 
       <nav class="col-md-12 justify-content-center text-center d-flex navbar navbar-expand-lg navbar-light bg-dark">
         <a class="navbar-brand text-light" href="/">Olasılık ve İstatistik</a>
-        <button class="navbar-toggler bg-light " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="btn btn-outline-secondary menu-icon-container" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="flex-grow: 0">
           <ul class="navbar-nav mr-auto text-center">
-            <li class="<%- page == 'index' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
+            <li class="ml-1 <%- page == 'index' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
               <a class="nav-link <%- page == 'index' ? 'text-dark':'text-white' %>" href="/">Başla <span class="sr-only">(current)</span></a>
             </li>
-            <li class="<%- page == 'sonuc' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
+            <li class="ml-1 <%- page == 'sonuc' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
               <a class="nav-link <%- page == 'sonuc' ? 'text-dark':'text-white' %>" href="/sonuc">Sonuç <span class="sr-only">(current)</span></a>
             </li>
-            <li class="<%- page == 'how-to-work' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
+            <li class="ml-1 <%- page == 'how-to-work' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
               <a class="nav-link <%- page == 'how-to-work' ? 'text-dark':'text-light' %>" href="/how-to-work">Nasıl Çalışır ?</a>
             </li>
-            <li class="<%- page == 'contact' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
+            <li class="ml-1 <%- page == 'contact' ? 'active nav-active bg-light rounded rounded-sm':'hvr-underline-from-left' %> nav-item">
               <a class="nav-link <%- page == 'contact' ? 'text-dark':'text-light' %>" href="/contact"  aria-disabled="true">Bize Ulaşın</a>
             </li>
           </ul>

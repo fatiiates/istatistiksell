@@ -52,7 +52,7 @@ app.get("/how-to-work", function(req,res) {
 app.get("/sonuc", function(req,res) {
 
 	res.render(__dirname+'/view/sonuc.ejs', {
-		title: 'Olasılık | Sonuç ?',
+		title: 'Olasılık | Sonuç',
 		page:'sonuc',
 		data: {bio:'bla bla bla...',twitter: '@sfdgsfd', instagram: '@gfds.jpeg'}
 	});

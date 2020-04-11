@@ -10,7 +10,22 @@
 .z-index-99{
   z-index: 99;
 }
-
+.z-index-999{
+  z-index: 999;
+}
+.z-index-9999{
+  z-index: 9999;
+}
+.example-data-set{
+  text-decoration: underline;
+}
+.example-data-set:hover{
+  transition: all .3s!important;
+  color:#57b846;
+}
+.link-color{
+  color:#03a9f4;
+}
 .angle-double-down:hover{
   color:#28a745!important;
 }
@@ -19,7 +34,50 @@
   -moz-box-shadow: 16px 16px 5px -1px rgba(130,126,130,0.78);
   box-shadow: 16px 16px 5px -1px rgba(130,126,130,0.78);
 }
-/* override yapılan classlar */
+.contact{
+  color:white;
+}
+.contact:hover{
+  background: white;
+  color:black!important;
+}
+#footer{
+  padding:40px 60px;
+  display:flex;
+  background-color:#161923;
+}
+/* Menu İcon Oluşturma */
+.menu-icon-container {
+  display: none;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  border-radius:5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+@media screen and (max-width:991px) {
+  .menu-icon-container{
+    display: inline-block;
+  }
+}
+/* override classlar */
 
 .input100{
   padding: 25px!important;
@@ -31,6 +89,14 @@
 .sidebar-link{
   color:#818181!important;
 }
+.shadow-lg{
+  -webkit-box-shadow: 10px 10px 77px -5px rgba(0,0,0,0.75)!important;
+  -moz-box-shadow: 10px 10px 77px -5px rgba(0,0,0,0.75)!important;
+  box-shadow: 10px 10px 77px -5px rgba(0,0,0,0.75)!important;
+}
+#si3debar{
+    position: absolute!important;
+}
 #sidebar label {
   cursor:pointer;
 }
@@ -40,5 +106,24 @@
 @media screen and (max-width:1000px) {
   #content {
     padding: 0!important;
+  }
+  .card-body{
+    padding: 5px!important;
+  }
+  /*.footer-info{
+    width: 100%;
+    float:left;
+  }*/
+  .name-divider{
+    display: none;
+  }
+  #footer{
+    display: inherit!important;
+    padding-right: 0!important;
+    padding-left: 0!important;
+  }
+  #footer .container{
+    margin-bottom:.75rem!important;
+    padding:0;
   }
 }

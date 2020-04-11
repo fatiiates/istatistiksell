@@ -1,14 +1,14 @@
 <%- include('./components/header') %>
-<div class="container d-flex justify-content-center col-md-12 m-0 p-0 ">
+<div class="d-flex justify-content-center col-md-12 m-0 p-0 ">
   <div class="col-md-12 justify-content-center text-center text-dark pr-0 pl-0 pb-5 pt-5 ">
     <h1 class="display-3 pb-3" >ADIM 1</h1>
     <p class="fs-25" >Veri setinizi istenen formatta girdiğinizde aşağıdaki şekilde bir uyarı alacaksınız;</p>
     <h3 id="info_data_set" class="animated bounceIn col-md-12 p-4 mb-4 bg-light" >Burada ki işimiz bitti gibi görünüyor! Haydi ilerleyelim.</h3>
-    <p class="fs-25" >Örnek Veri seti için <button type="button" onclick="dataSetOpen()" class="fs-25"><u>tıkla</u></button>;</p>
+    <p class="fs-25" >Örnek veri seti için <button type="button" onclick="dataSetOpen()" class="fs-25 example-data-set link-color">tıkla</button>;</p>
     <p id="dataset-example-toggle" class="animated bounceIn fs-25 d-none bg-warning p-2">
       5,11,22,5,6,4,654,76,76,4,32,55,776,986,4,54,34,5,11,22,5,6,4,654,4,32,55,776
     <input id="example-data-set" type="hidden" value="5,11,22,5,6,4,654,76,76,4,32,55,776,986,4,54,34,5,11,22,5,6,4,654,4,32,55,776">
-    <i class="btn btn-outline-dark fas fa-copy ml-3" onclick="copyInElement('example-data-set')"></i>
+    <i class="btn btn-outline-dark fas fa-copy ml-3" data-toggle="modal" data-target="#exampleModal" onclick="copyInElement('example-data-set')"></i>
     </p>
 
     <p class="fs-25" >Bahsedilen uyarıyı aldıktan sonra butona;</p>
@@ -18,9 +18,23 @@
     </button>
     <p class="fs-25" >tıklayarak 2. adıma geçebilirsiniz.</p>
     <hr class="col-md-6 d-inline-block m-5" >
-    <h1 class="display-3" >ADIM 2</h1>
-    <img src="" alt="">
-
+    <h1 class="display-3 pb-5" >SONUÇ SAYFASI</h1>
+    <p class="fs-25" >Sonuç sayfasında göreceğiniz uyarı metninden;</p>
+    <div class="col-md-12 d-flex justify-content-center text-left ">
+      <div class="col-md-6">
+        <div id="info" class="col-md-12 mt-5">
+          <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">İşlem Tamam!</h4>
+            <p>Şimdi sol tafarındaki menüden istediğin konu başlıklarını seçebilirsin.</p>
+            <hr>
+            <p class="mb-0">Başka veri girmek istersen <a >tıkla</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fs-25" >anlaşılacağı üzere sayfanın sol tarafında <br> belirecek olan menüden sizden görmek istediğiniz <br> konuları seçmenizi istiyoruz</p>
+    <br>
+    <h1 class="bg-dark p-5 text-light">Hemen başlamak için <u><a href="/" class="h1 link-color" >tıklayın!</a></u></h1>
   </div>
 </div>
 <%- include('./components/footer') %>

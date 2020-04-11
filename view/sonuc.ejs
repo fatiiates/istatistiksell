@@ -1,9 +1,9 @@
-<%- include('./components/header') %>
 <link rel="stylesheet" href="/static/css/sidebar/style.css">
 <link rel="stylesheet" href="/static/css/_checkbox.css">
 <link rel="stylesheet" href="/static/css/style.min.css">
-<div class="wrapper d-flex align-items-stretch">
-<nav id="sidebar" >
+<%- include('./components/header') %>
+<div id="div_wrapper_sonuc" class="wrapper d-flex align-items-stretch" style="min-height: 110vh;">
+<nav id="sidebar" class="position-absolute z-index-9999">
   <div class="z-index-9 custom-menu">
     <button type="button" id="sidebarCollapse" class="btn btn-primary">
       <i class="fa fa-bars"></i>
@@ -105,8 +105,12 @@
   </div>
 </nav>
 <div id="content" class="p-4 p-md-5 pt-5 justify-content-center d-flex">
-  <div class="col-md-8 align-items-center m-0 p-0">
+  <div class="col-md-8 justify-content-center align-items-center m-0 p-0">
     <div id="info" class="col-md-12 mt-5">
+      <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Veri setiniz</h4>
+        <p id="paragraph_inner_data_set" ></p>
+      </div>
       <div class="alert alert-success" role="alert">
         <h4 class="alert-heading">İşlem Tamam!</h4>
         <p>Şimdi sol tafarındaki menüden istediğin konu başlıklarını seçebilirsin.</p>
@@ -115,7 +119,7 @@
       </div>
     </div>
 
-    <div id="histogram" name="div_histogram" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="histogram" name="div_histogram" class="animated bounceOut d-none justify-content-center text-center align-items-center">
       <u><h1>Histogram</h1></u><br>
       <div class="card">
         <div class="card-body">
@@ -131,7 +135,7 @@
         </div>
       </div>
     </div>
-    <div id="mod" name="div_mod" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="mod" name="div_mod" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Mod</h1></u><br>
       <h3>45</h3>
 
@@ -141,7 +145,7 @@
         </div>
       </div>
     </div>
-    <div id="standart_sapma" name="div_standart_sapma" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="standart_sapma" name="div_standart_sapma" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Standart Sapma</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -150,7 +154,7 @@
         </div>
       </div>
     </div>
-    <div id="medyan" name="div_medyan" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="medyan" name="div_medyan" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Medyan</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -159,7 +163,7 @@
         </div>
       </div>
     </div>
-    <div id="varyans" name="div_varyans" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="varyans" name="div_varyans" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Varyans</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -168,7 +172,7 @@
         </div>
       </div>
     </div>
-    <div id="ortalama_mutlak_sapma" name="animated bounceIn div_ortalama_mutlak_sapma" class="d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="ortalama_mutlak_sapma" name="div_ortalama_mutlak_sapma" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Ortalama Mutlak Sapma</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -177,7 +181,7 @@
         </div>
       </div>
     </div>
-    <div id="degisken_kat_sayi" name="div_degisken_kat_sayi" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="degisken_kat_sayi" name="div_degisken_kat_sayi" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Değişken Kat Sayısı</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -186,7 +190,7 @@
         </div>
       </div>
     </div>
-    <div id="harmonik_ortalama" name="div_harmonik_ortalama" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="harmonik_ortalama" name="div_harmonik_ortalama" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Harmonik Ortalama</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -195,7 +199,7 @@
         </div>
       </div>
     </div>
-    <div id="aritmetik_ortalama" name="div_aritmetik_ortalama" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="aritmetik_ortalama" name="div_aritmetik_ortalama" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Aritmetik Ortalama</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -204,7 +208,7 @@
         </div>
       </div>
     </div>
-    <div id="geometrik_ortalama" name="div_geometrik_ortalama" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="geometrik_ortalama" name="div_geometrik_ortalama" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>Geometrik Ortalama</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -213,7 +217,7 @@
         </div>
       </div>
     </div>
-    <div id="t_deger" name="div_t_deger" class="animated bounceIn d-none col-md-12 justify-content-center text-center align-items-center">
+    <div id="t_deger" name="div_t_deger" class="animated bounceOut d-none col-md-12 justify-content-center text-center align-items-center">
       <u><h1>T değeri</h1></u><br>
       <h3>45</h3>
       <div class="col-md-12 d-flex justify-content-center" >
@@ -222,12 +226,21 @@
         </div>
       </div>
     </div>
-
   </div>
-</div>
+ </div>
 </div>
 <%- include('./components/footer') %>
+<script type="text/javascript" src="/node_static/css-element-queries/src/ElementQueries.js"></script>
+<script type="text/javascript" src="/node_static/css-element-queries/src/ResizeSensor.js"></script>
+<script type="text/javascript">
+  $('#paragraph_inner_data_set').text(Cookies.getJSON("data-set")["data1"]);
+  var element = document.getElementById('div_wrapper_sonuc');
+  new ResizeSensor(element, function() {
+      $('#sidebar').height($('#div_wrapper_sonuc').height());
+      console.log('Changed to ' + $('#div_wrapper_sonuc').height());
+  });
 
+</script>
 <script type="text/javascript" src="/static/js/sidebar/popper.js"></script>
 <script type="text/javascript" src="/static/js/sidebar/main.js"></script>
 <!-- HİSTOGRAM GRAFİK İÇİN  -->

@@ -1,6 +1,9 @@
 $(function () {
     "use strict";
 	// Bar chart
+  Cookies.set("data-set",{
+    data1:"5,11,22,5,6,4,654,76,76,4,32,55,776,986,4,54,34,5,11,22,5,6,4,654,4,32,55,776"
+  });
   Cookies.set("histogram/chartjs-init-cerez",{
 		type: 'bar',
 		data: {
