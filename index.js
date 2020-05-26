@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 var ejs = require('ejs');
+var cookieParser = require('cookie-parser')
 app.engine('.ejs', ejs.__express);
 
 app.use('/static', express.static('public'));
@@ -10,7 +11,7 @@ app.use('/static', express.static('public'));
 // node_modules dizini gizli bir dizin o yüzden sahte bir dizin oluşturup oradan erişiyoruz.
 app.use("/node_static", express.static(path.join(__dirname, "node_modules")));
 app.use("/components", express.static(path.join(__dirname, "/view/components")));
-app.use(require("cookie-parser")());
+app.use(cookieParser());
 // İNDEX SAYFASI
 
 app.get("/", function(req,res) {

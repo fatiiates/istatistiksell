@@ -27,6 +27,7 @@
     "@fortawesome/fontawesome-free": "^5.13.0",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
+    "cookie-parser": "^1.4.5",
     "css-element-queries": "^1.2.3",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
