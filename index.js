@@ -10,7 +10,7 @@ app.use('/static', express.static('public'));
 // node_modules dizini gizli bir dizin o yüzden sahte bir dizin oluşturup oradan erişiyoruz.
 app.use("/node_static", express.static(path.join(__dirname, "node_modules")));
 app.use("/components", express.static(path.join(__dirname, "/view/components")));
-
+app.use(require("cookie-parser")());
 // İNDEX SAYFASI
 
 app.get("/", function(req,res) {
@@ -18,7 +18,6 @@ app.get("/", function(req,res) {
 	res.render(__dirname+'/view/index.ejs', {
 		title: 'Olasılık',
 		page:'index',
-		data: {bio:'bla bla bla...',twitter: '@gsdg', instagram: '@gsfdgs.jpeg'}
 	});
 
 });
@@ -30,20 +29,10 @@ app.get("/contact", function(req,res) {
 	res.render(__dirname+'/view/contact.ejs', {
 		title: 'Olasılık | Bize ulaşın',
 		page:'contact',
-		data: {bio:'bla bla bla...',twitter: '@sfdgsfd', instagram: '@gfds.jpeg'}
 	});
 
 });
 
-app.get("/testkee", function(req,res) {
-
-	res.render(__dirname+'/route/post.ejs', {
-		title: 'Olasılık | Bize ulaşın',
-		page:'contact',
-		data: {bio:'bla bla bla...',twitter: '@sfdgsfd', instagram: '@gfds.jpeg'}
-	});
-
-});
 // NASIL ÇALIŞIR SAYFASI
 
 app.get("/how-to-work", function(req,res) {
@@ -51,24 +40,23 @@ app.get("/how-to-work", function(req,res) {
 	res.render(__dirname+'/view/how-to-work.ejs', {
 		title: 'Olasılık | Nasıl Çalışır ?',
 		page:'how-to-work',
-		data: {bio:'bla bla bla...',twitter: '@sfdgsfd', instagram: '@gfds.jpeg'}
 	});
 
 });
 
-// TEST SAYFASI
+// SONUÇ SAYFASI
 
 app.get("/sonuc", function(req,res) {
 
-	res.render(__dirname+'/view/sonuc.ejs', {
-		title: 'Olasılık | Sonuç',
-		page:'sonuc',
-		data: {bio:'bla bla bla...',twitter: '@sfdgsfd', instagram: '@gfds.jpeg'}
-	});
+	if(req.cookies['data-set'] != undefined) {
+		res.render(__dirname+'/view/sonuc.ejs', {
+			title: 'Olasılık | Sonuç',
+			page:'sonuc',
+			cookies: req.cookies,
+		});
+	}
 
 });
-
-
 
 // YENİ ROUTER BAŞLATILIYOR
 app.use('/', router);

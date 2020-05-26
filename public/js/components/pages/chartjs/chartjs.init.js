@@ -5,9 +5,6 @@ $(function () {
 
   var histogramVeriHesapla = (params) => {
 
-    params = params.replace(" ", "");
-    params = params.split(',');
-
     params.sort((a, b) => {
       return a - b;
     });
@@ -18,12 +15,14 @@ $(function () {
     var k = 1.0 +  3.3 * Math.log10(parametreSayi);
     var grupGenisligi = Math.round(parseFloat(rank) / parseFloat(k));
 
-    labels = Array(Math.round(k));
-    bgColors = Array(Math.round(k));
-    data = Array(Math.round(k));
-
     var grupBaslangicSayisi = minDeger, grupBitisBaslangicSayisi = minDeger + grupGenisligi - 1;
-    for (var i = 0; i < Math.round(k); i++) {
+    var grupSayisi = Math.round((grupBitisBaslangicSayisi + grupGenisligi*Math.round(k - 1)) >= maxDeger ? k:(k + 1));
+
+    labels = Array(grupSayisi);
+    bgColors = Array(grupSayisi);
+    data = Array(grupSayisi);
+
+    for (var i = 0; i < grupSayisi; i++) {
 
       let ilk = grupBaslangicSayisi + grupGenisligi*i;
       let son = grupBitisBaslangicSayisi + grupGenisligi*i;
@@ -35,10 +34,8 @@ $(function () {
 
       data[i] = 0;
       params.forEach((item, j) => {
-
         if(parseFloat(item) <= son && parseFloat(item) >= ilk)
           data[i]++;
-
       });
     }
 
@@ -47,7 +44,7 @@ $(function () {
   }
 
   let mesaj = histogramVeriHesapla(Cookies.getJSON("data-set")["data1"]);
-  //data[data.length - 1] = 0;
+
   Cookies.set("histogram/chartjs-init-cerez",{
 		type: 'bar',
 		data: {
@@ -68,7 +65,7 @@ $(function () {
 		  }
 		}
 	});
-  console.log(Cookies.getJSON("histogram/chartjs-init-cerez"));
+
   new Chart(document.getElementById("bar-chart"), Cookies.getJSON("histogram/chartjs-init-cerez"));
 
 });

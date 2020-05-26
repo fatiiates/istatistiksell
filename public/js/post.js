@@ -1,11 +1,8 @@
 let veri;
 $(() => {
-  if (Cookies.getJSON("data-set") == undefined) {
-    window.location = window.location.origin + '?process=error&message=Girilmiş bir veri seti bulunamadı&alertClass=danger';
-  }else {
+  document.form_sidebar.reset();
+  if (Cookies.getJSON("data-set") != undefined) {
     veri = Cookies.getJSON("data-set")["data1"];
-    veri = veri.replace(" ", "");
-    veri = veri.split(',');
 
     modHesapla(veri);
     sayfayaDahilEt('mod', 'Mod: ' + JSON.parse(modHesapla(veri)).mod + ', Frekans: ' + JSON.parse(modHesapla(veri)).frekans);

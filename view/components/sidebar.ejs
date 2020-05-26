@@ -7,87 +7,89 @@
   </div>
   <div class="p-4">
     <h1><a href="index.html" class="logo">Olasılık ve İstatistik <span>Konular</span></a></h1>
-    <ul class="list-unstyled components mb-5">
-      <li class="d-flex mt-2 mb-3">
+    <form name="form_sidebar">
+      <ul class="list-unstyled components mb-5">
+        <li class="d-flex mt-2 mb-3">
+            <div class="button b2 m-0 p-0" id="button-15">
+              <input type="checkbox" name="checkbox_histogram" data-val="histogram" class="checkbox">
+              <div class="knobs"></div>
+              <div class="layer"></div>
+            </div>
+            <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_histogram">Histogram</label>
+        </li>
+        <li class="d-flex mt-2 mb-3">
+            <div class="button b2 m-0 p-0" id="button-15">
+              <input type="checkbox" name="checkbox_mod" data-val="mod" class="checkbox">
+              <div class="knobs"></div>
+              <div class="layer"></div>
+            </div>
+            <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_mod">Mod</label>
+        </li>
+        <li class="d-flex mt-2 mb-3">
           <div class="button b2 m-0 p-0" id="button-15">
-            <input type="checkbox" name="checkbox_histogram" data-val="histogram" class="checkbox">
+            <input type="checkbox" name="checkbox_standart_sapma" data-val="standart_sapma" class="checkbox">
             <div class="knobs"></div>
             <div class="layer"></div>
           </div>
-          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_histogram">Histogram</label>
-      </li>
-      <li class="d-flex mt-2 mb-3">
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_standart_sapma">Standart Sapma</label>
+        </li>
+        <li class="d-flex mt-2 mb-3">
           <div class="button b2 m-0 p-0" id="button-15">
-            <input type="checkbox" name="checkbox_mod" data-val="mod" class="checkbox">
+            <input type="checkbox" name="checkbox_medyan" data-val="medyan" class="checkbox">
             <div class="knobs"></div>
             <div class="layer"></div>
           </div>
-          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_mod">Mod</label>
-      </li>
-      <li class="d-flex mt-2 mb-3">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_standart_sapma" data-val="standart_sapma" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_standart_sapma">Standart Sapma</label>
-      </li>
-      <li class="d-flex mt-2 mb-3">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_medyan" data-val="medyan" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_medyan">Medyan</label>
-      </li>
-      <li class="d-flex mt-2 mb-3">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_varyans" data-val="varyans" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_varyans">Varyans</label>
-      </li>
-      <li class="d-flex mt-2">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_ortalama_mutlak_sapma" data-val="ortalama_mutlak_sapma" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_ortalama_mutlak_sapma">Ortalama Mutlak Sapma</label>
-      </li>
-      <li class="d-flex mt-2">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_degisken_katsayisi" data-val="degisken_kat_sayi" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_degisken_katsayisi">Değişken Kat Sayısı</label>
-      </li>
-      <li class="d-flex mt-2">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_harmonik" data-val="harmonik_ortalama" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_harmonik">Harmonik Ortalama</label>
-      </li>
-      <li class="d-flex mt-2">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_aritmetik" data-val="aritmetik_ortalama" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_aritmetik">Aritmetik Ortalama</label>
-      </li>
-      <li class="d-flex mt-2">
-        <div class="button b2 m-0 p-0" id="button-15">
-          <input type="checkbox" name="checkbox_geometrik" data-val="geometrik_ortalama" class="checkbox">
-          <div class="knobs"></div>
-          <div class="layer"></div>
-        </div>
-        <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_geometrik">Geometrik Ortalama</label>
-      </li>
-    </ul>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_medyan">Medyan</label>
+        </li>
+        <li class="d-flex mt-2 mb-3">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_varyans" data-val="varyans" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_varyans">Varyans</label>
+        </li>
+        <li class="d-flex mt-2">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_ortalama_mutlak_sapma" data-val="ortalama_mutlak_sapma" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_ortalama_mutlak_sapma">Ortalama Mutlak Sapma</label>
+        </li>
+        <li class="d-flex mt-2">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_degisken_katsayisi" data-val="degisken_kat_sayi" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_degisken_katsayisi">Değişken Kat Sayısı</label>
+        </li>
+        <li class="d-flex mt-2">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_harmonik" data-val="harmonik_ortalama" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_harmonik">Harmonik Ortalama</label>
+        </li>
+        <li class="d-flex mt-2">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_aritmetik" data-val="aritmetik_ortalama" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_aritmetik">Aritmetik Ortalama</label>
+        </li>
+        <li class="d-flex mt-2">
+          <div class="button b2 m-0 p-0" id="button-15">
+            <input type="checkbox" name="checkbox_geometrik" data-val="geometrik_ortalama" class="checkbox">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+          <label class="w-100 z-index-9 h5 pl-3 d-inline-block text-light" for="checkbox_geometrik">Geometrik Ortalama</label>
+        </li>
+      </ul>
+    </form>
   </div>
 </nav>

@@ -10,7 +10,7 @@ function policyClose(el){
   });
 }
 
-function alert(id,type,text){
+function alert(id, type, text){
 
   // ALERT OLUŞTURMA
 
@@ -26,25 +26,30 @@ function alert(id,type,text){
   return wrongAlert;
 }
 
-function dataSetValidate(el){
+function cleanDataSet(val){
+  var data = val.replace(/ /g,'');
+  if(data.charAt(data.length - 1) == ',')
+    data = data.substring(0, data.length - 1);
+
+  data = data.split(',');
+  return data;
+}
+
+function dataSetValidate(val){
 
   // VERİ KONTROLÜ
+console.log(val);
+  var tempInputArray = cleanDataSet(val);
 
-  var tempInputArray=$(el).val().trim();
-  tempInputArray=tempInputArray.split(",");
-  var fullInput=0;
-
-  if (tempInputArray.length > 1) {
-    for (var i = 0; i < tempInputArray.length; i++) {
-      if(tempInputArray[i] != "")
-        fullInput++;
-      if(fullInput > 1){
-        return true;
-      }
-
-    }
+  if (tempInputArray.length > 1 && tempInputArray[1] != ""){
+    for (var i = 0; i < tempInputArray.length; i++)
+      if (isNaN(parseInt(tempInputArray[i])))
+        return false;
   }
-  return false;
+  else
+    return false;
+
+  return true;
 
 }
 
@@ -81,7 +86,22 @@ function copyInElement(elementId){
 $(function(){
 
   // DÖKÜMAN HAZIR OLDUĞUNDA
+  if(Cookies.get('data-set')){
+    var data = Cookies.getJSON("data-set")["data1"];
+    let dataString = "";
+    typeof data == "object" && data.forEach((item, i) => {
+      dataString += item + ",";
+    });
+    dataString = dataString.substring(0, dataString.length - 1);
 
+    if (!dataSetValidate(dataString)) {
+      Cookies.remove('data-set', { path: '' });
+      window.location = window.location.origin;
+    }
+
+
+
+  }
   if(Cookies.get('policy-cookie') != "true"){
     var policy='';
     policy='<div id="policy-container" class="col-md-12 justify-content-center d-flex align-items-center text-center p-2 bg-info">';
@@ -100,48 +120,44 @@ $(function(){
   });
   $(document).on('submit','#form_data_set_post',function(){
 
-    var textarea = $('#data_set');
+    var textarea = $('#data_set').val();
     var test = dataSetValidate(textarea);
-    var message = alert('alert_error_data_set_type','danger','Lütfen istenen biçimde bir veri seti giriniz.');
-    if (!test) {
+    if (!test && ($('#info_data_set_danger').length > 0 ? false:true)){
       var innerMessage = '';
-      innerMessage += '<div id="div_alert_error_data_set_type" class="col-md-6 p-0 d-flex">';
-        innerMessage += message;
-      innerMessage += '</div>';
+      innerMessage += '<h3 id="info_data_set_danger" class="animated bounceIn col-md-12 p-4 mb-4 bg-danger text-light" >Lütfen istenen formatta bir veri seti giriniz.</h3>';
       $('#info_box').empty();
       $('#info_box').append(innerMessage);
     }
+
 
     return false;
   });
   $(document).on('keyup','#data_set',function(){
 
-    var test = dataSetValidate(this);
-    var message = alert('alert_error_data_set_type','danger','Lütfen istenen biçimde bir veri seti giriniz.');
-    if (!test) {
+    var test = dataSetValidate($(this).val());
+
+    if (!test && ($('#info_data_set_danger').length > 0 ? false:true)){
+
       var innerMessage = '';
-      innerMessage += '<div id="div_alert_error_data_set_type" class="col-md-6 p-0 d-flex">';
-        innerMessage += message;
-      innerMessage += '</div>';
+      innerMessage += '<h3 id="info_data_set_danger" class="animated bounceIn col-md-12 p-4 mb-4 bg-danger text-light" >Lütfen istenen formatta bir veri seti giriniz.</h3>';
       $('#info_box').empty();
       $('#info_box').append(innerMessage);
-    }else
-      if(test && ( $('#info_data_set').length > 0 ? false:true )){
-        $('#info_box').empty();
-        $('#info_box').append('<h3 id="info_data_set" class="animated bounceIn col-md-12 p-4 mb-4 bg-light" >Veri setiniz uygun görünüyor! Haydi ilerleyelim.</h3>');
-      }
+    }
+    else if(test && ($('#info_data_set_success').length > 0 ? false:true)){
+      $('#info_box').empty();
+      $('#info_box').append('<h3 id="info_data_set_success" class="animated bounceIn col-md-12 p-4 mb-4 bg-light" >Veri setiniz uygun görünüyor! Haydi ilerleyelim.</h3>');
+    }
 
   });
   $(document).on('click','#btn_post_sonuc',function(){
-    if ($('#data_set').val() != "") {
-      Cookies.remove('data-set', { path: '' })
+    if (dataSetValidate($('#data_set').val())) {
+      Cookies.remove('data-set', { path: '' });
+      var data = cleanDataSet($('#data_set').val());
       Cookies.set('data-set', {
-        data1:$('#data_set').val()
+        data1:data
       });
-
       window.location = window.location.origin + '/sonuc';
     }
-
   });
   $(document).on('click', '#datasetOpen', function(){
 
