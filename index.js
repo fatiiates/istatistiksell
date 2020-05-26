@@ -14,7 +14,7 @@ app.use("/components", express.static(path.join(__dirname, "/view/components")))
 // İNDEX SAYFASI
 
 app.get("/", function(req,res) {
-
+	res.locals.req = req;
 	res.render(__dirname+'/view/index.ejs', {
 		title: 'Olasılık',
 		page:'index',
@@ -35,6 +35,15 @@ app.get("/contact", function(req,res) {
 
 });
 
+app.get("/testkee", function(req,res) {
+
+	res.render(__dirname+'/route/post.ejs', {
+		title: 'Olasılık | Bize ulaşın',
+		page:'contact',
+		data: {bio:'bla bla bla...',twitter: '@sfdgsfd', instagram: '@gfds.jpeg'}
+	});
+
+});
 // NASIL ÇALIŞIR SAYFASI
 
 app.get("/how-to-work", function(req,res) {

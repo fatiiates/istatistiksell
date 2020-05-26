@@ -11,6 +11,9 @@ function policyClose(el){
 }
 
 function alert(id,type,text){
+
+  // ALERT OLUŞTURMA
+
   var wrongAlert = '';
 
     wrongAlert+='<div id="' + id + '" class="mt-2 alert alert-' + type + ' alert-dismissible fade show text-left" role="alert">';
@@ -24,6 +27,9 @@ function alert(id,type,text){
 }
 
 function dataSetValidate(el){
+
+  // VERİ KONTROLÜ
+
   var tempInputArray=$(el).val().trim();
   tempInputArray=tempInputArray.split(",");
   var fullInput=0;
@@ -42,12 +48,24 @@ function dataSetValidate(el){
 
 }
 
-function dataSetOpen(){
+function modal(id, data){
 
-  // ÖRNEK VERİ SETİ
-  $('#dataset-example-toggle').toggleClass('d-none');
+  // MODAL OLUŞTURMA
+
+  var dataSetModal ='';
+  dataSetModal += '<div id="' + id + '" class="modal fade show d-block" style="width:250px;bottom:20px;right:10px!important;left:auto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" aria-modal="true">';
+    dataSetModal += '<div class="modal-dialog" role="document">';
+      dataSetModal += '<div class="modal-content bg-dark">';
+        dataSetModal += '<div class="modal-body text-light font-weight-bold">';
+          dataSetModal += data;
+        dataSetModal += '</div>';
+      dataSetModal += '</div>';
+    dataSetModal += '</div>';
+  dataSetModal += '</div>';
+  return dataSetModal;
 
 }
+
 function copyInElement(elementId){
 
   // VERİ KOPYALAMA
@@ -57,24 +75,6 @@ function copyInElement(elementId){
   $temp.val($('#'+elementId).val()).select();
   document.execCommand("copy");
   $temp.remove();
-  var dataSetModal ='';
-  dataSetModal += '<div id="data-set-modal" class="modal fade show d-block" style="width:250px;bottom:20px;right:10px!important;left:auto" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" aria-modal="true">';
-    dataSetModal += '<div class="modal-dialog" role="document">';
-      dataSetModal += '<div class="modal-content bg-dark">';
-        dataSetModal += '<div class="modal-body text-light font-weight-bold">';
-          dataSetModal += '<i class="fas fa-exclamation-circle mr-2 text-warning" />';
-          dataSetModal += 'Veri kopyalandı!';
-        dataSetModal += '</div>';
-      dataSetModal += '</div>';
-    dataSetModal += '</div>';
-  dataSetModal += '</div>';
-
-  $('#data-set-modal').remove();
-  $('body').prepend(dataSetModal);
-
-  setTimeout(function(){$('#data-set-modal').fadeOut("slow",function(){
-    $('#data-set-modal').remove();
-  });}, 3000);
 
 }
 
@@ -132,7 +132,38 @@ $(function(){
       }
 
   });
-  
+  $(document).on('click','#btn_post_sonuc',function(){
+    if ($('#data_set').val() != "") {
+      Cookies.remove('data-set', { path: '' })
+      Cookies.set('data-set', {
+        data1:$('#data_set').val()
+      });
+
+      window.location = window.location.origin + '/sonuc';
+    }
+
+  });
+  $(document).on('click', '#datasetOpen', function(){
+
+    // ÖRNEK VERİ SETİ
+    $('#dataset-example-toggle').toggleClass('d-none');
+
+  });
+  $(document).on('click', 'i[data-target="#exampleModal"]', function(){
+
+    copyInElement('example-data-set');
+    var data='';
+    data += '<i class="fas fa-exclamation-circle mr-2 text-warning" /> Veri kopyalandı!';
+    var dataSetModal = modal('data-set-modal', data);
+
+    $('#data-set-modal').remove();
+    $('body').prepend(dataSetModal);
+
+    setTimeout(function(){$('#data-set-modal').fadeOut("slow",function(){
+      $('#data-set-modal').remove();
+    });}, 3000);
+
+  });
   $(document).on('change','.checkbox',function(){
 
     var id=$(this).attr("data-val");
