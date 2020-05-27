@@ -5,7 +5,7 @@ $(() => {
     veri = Cookies.getJSON("data-set")["data1"];
 
     modHesapla(veri);
-    sayfayaDahilEt('mod', 'Mod: ' + JSON.parse(modHesapla(veri)).mod + ', Frekans: ' + JSON.parse(modHesapla(veri)).frekans);
+    sayfayaDahilEt('mod', 'Mod: [' + JSON.parse(modHesapla(veri)).mod + '], Frekans: ' + JSON.parse(modHesapla(veri)).frekans);
     sayfayaDahilEt('standart_sapma', 'Değer: ' + standartSapmaHesapla(veri) + ', yaklaşık: ' + Math.round(standartSapmaHesapla(veri)));
     sayfayaDahilEt('medyan', 'Değer: ' + medyanHesapla(veri) + ', yaklaşık: ' + Math.round(medyanHesapla(veri)));
     sayfayaDahilEt('varyans', 'Değer: ' + varyansHesapla(veri) + ', yaklaşık: ' + Math.round(varyansHesapla(veri)));
@@ -27,21 +27,36 @@ var sayfayaDahilEt = (islem, mesaj) => {
 // MOD
 
 var modHesapla = (params) => {
-  let frekans = 0, tempFrekans = 0, mod;
-  params.forEach((item, i) => {
+  let frekans = 0, tempFrekans = 0, mod = "";
+  for (var i = 0; i < params.length; i++) {
+
+    let tempModArray = mod.split(',');
+    let controlVal = false;
+    tempModArray.forEach((element, j) => {
+      if(parseInt(element) == params[i])
+        controlVal = true;
+    });
+    if(controlVal)
+      continue;
 
     params.forEach((element, j) => {
-      if(item == element)
+      if(params[i] == element)
         frekans++;
     });
-
-    if(frekans > tempFrekans){
-      mod = item;
+    if (frekans == tempFrekans) {
+      mod += params[i] + ',';
+    }
+    else if(frekans > tempFrekans){
+      mod = params[i] + ',';
       tempFrekans = frekans;
     }
     frekans=0;
 
-  });
+  }
+
+
+  mod = mod.substring(0, mod.length - 1);
+
     // frekans tempde tutuluyor
     return '{"mod":"' + mod + '","frekans":"' + tempFrekans + '"}';
 }

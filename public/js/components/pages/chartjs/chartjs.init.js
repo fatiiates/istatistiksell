@@ -20,7 +20,7 @@ $(function () {
 
     labels = Array(grupSayisi);
     bgColors = Array(grupSayisi);
-    data = Array(grupSayisi);
+    data = Array(grupSayisi + 1);
 
     for (var i = 0; i < grupSayisi; i++) {
 
@@ -38,7 +38,7 @@ $(function () {
           data[i]++;
       });
     }
-
+    data[data.length] = 0;
     return 'Girmiş olduğunuz veri setiniz.(' + parametreSayi + ' veri)';
 
   }
