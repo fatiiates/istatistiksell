@@ -12,6 +12,7 @@ app.use('/static', express.static('public'));
 app.use("/node_static", express.static(path.join(__dirname, "node_modules")));
 app.use("/components", express.static(path.join(__dirname, "/view/components")));
 app.use(cookieParser());
+
 // İNDEX SAYFASI
 
 app.get("/", function(req,res) {
@@ -49,18 +50,23 @@ app.get("/how-to-work", function(req,res) {
 
 app.get("/sonuc", function(req,res) {
 
-	if(req.cookies['data-set'] != undefined) {
-		res.render(__dirname+'/view/sonuc.ejs', {
-			title: 'Olasılık | Sonuç',
-			page:'sonuc',
-			cookies: req.cookies,
-		});
-	}
+	res.render(__dirname+'/view/' + (req.cookies['data-set'] != undefined ? 'sonuc':'error') + '.ejs', {
+		title: 'Olasılık | Sonuç',
+		page:'sonuc',
+		cookies: req.cookies,
+	});
 
+});
+
+// ERROR SAYFASI
+
+app.get('*', function(req, res){
+	res.render(__dirname+'/view/error.ejs', {
+		title: 'Olasılık | Error',
+		page:'error',
+	});
 });
 
 // YENİ ROUTER BAŞLATILIYOR
 app.use('/', router);
 app.listen(process.env.PORT || 3000);
-
-console.log('Running');
