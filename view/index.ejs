@@ -1,7 +1,7 @@
 
     <%- include('./components/header') %>
     <div class="col-md-12 d-flex justify-content-center p-0">
-      <form id="form_data_set_post" class="col-md-12 m-0 p-0">
+      <!--<form id="form_data_set_post" class="col-md-12 m-0 p-0">-->
         <div class="animated fadeIn col-md-12 justify-content-center text-center p-0 pb-5 pt-5">
           <% if(req.query.message != undefined && req.query.message != "") { %>
             <div class="col-md-12 d-flex justify-content-center ">
@@ -24,16 +24,16 @@
               </span>
             </label>
             <div id="input_area" class="col-md-6 wrap-input100 validate-input m-b-36 p-0">
-              <textarea id="data_set" name="data_set" class="auto-height input100" title="Veri seti giriniz." rows="8" cols="80" required></textarea>
+              <textarea id="data_set" name="data_set" class="auto-height input100" title="Veri seti giriniz." rows="8" cols="80" style="font-family:Courier" required></textarea>
               <span class="focus-input100"></span>
             </div>
             <div id="info_box" class="col-md-12 mt-3 justify-content-center d-flex p-0">
             </div>
-            <button id="btn_post_sonuc" name="btn_post_sonuc" type="submit" class="btn btn-success hvr-bounce-to-right btn-lg rounded-0 border-0 fs-22 m-3">
+            <button id="btn_sonuc" name="btn_post_sonuc" type="button" class="btn btn-success hvr-bounce-to-right btn-lg rounded-0 border-0 fs-22 m-3">
               Sonucu Göster &nbsp;&nbsp;
               <i class="fas fa-hand-point-right"></i>
             </button>
         </div>
-      </form>
+      <!--</form>-->
     </div>
     <%- include('./components/footer') %>

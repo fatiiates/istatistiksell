@@ -38,7 +38,7 @@ function cleanDataSet(val){
 function dataSetValidate(val){
 
   // VERİ KONTROLÜ
-console.log(val);
+
   var tempInputArray = cleanDataSet(val);
 
   if (tempInputArray.length > 1 && tempInputArray[1] != ""){
@@ -89,7 +89,7 @@ $(function(){
   if(Cookies.get('data-set')){
     var data = Cookies.getJSON("data-set")["data1"];
     let dataString = "";
-    typeof data == "object" && data.forEach((item, i) => {
+    typeof data == "object" && data.forEach(function(item, i){
       dataString += item + ",";
     });
     dataString = dataString.substring(0, dataString.length - 1);
@@ -118,20 +118,6 @@ $(function(){
   $(document).on('click','.menu-icon-container',function(){
     $(this).toggleClass("change");
   });
-  $(document).on('submit','#form_data_set_post',function(){
-
-    var textarea = $('#data_set').val();
-    var test = dataSetValidate(textarea);
-    if (!test && ($('#info_data_set_danger').length > 0 ? false:true)){
-      var innerMessage = '';
-      innerMessage += '<h3 id="info_data_set_danger" class="animated bounceIn col-md-12 p-4 mb-4 bg-danger text-light" >Lütfen istenen formatta bir veri seti giriniz.</h3>';
-      $('#info_box').empty();
-      $('#info_box').append(innerMessage);
-    }
-
-
-    return false;
-  });
   $(document).on('keyup','#data_set',function(){
 
     var test = dataSetValidate($(this).val());
@@ -149,14 +135,25 @@ $(function(){
     }
 
   });
-  $(document).on('click','#btn_post_sonuc',function(){
-    if (dataSetValidate($('#data_set').val())) {
+  $(document).on('click','#btn_sonuc',function(){
+    console.log(1);
+    var textarea = $('#data_set').val();
+    var test = dataSetValidate(textarea);
+
+    if (test) {
       Cookies.remove('data-set', { path: '' });
       var data = cleanDataSet($('#data_set').val());
       Cookies.set('data-set', {
         data1:data
       });
       window.location = window.location.origin + '/sonuc';
+    }else {
+      if (!test && ($('#info_data_set_danger').length > 0 ? false:true)){
+        var innerMessage = '';
+        innerMessage += '<h3 id="info_data_set_danger" class="animated bounceIn col-md-12 p-4 mb-4 bg-danger text-light" >Lütfen istenen formatta bir veri seti giriniz.</h3>';
+        $('#info_box').empty();
+        $('#info_box').append(innerMessage);
+      }
     }
   });
   $(document).on('click', '#datasetOpen', function(){

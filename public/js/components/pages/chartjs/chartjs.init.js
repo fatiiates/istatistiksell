@@ -1,22 +1,26 @@
+Math.log10 = Math.log10 || function(x) {
+  return Math.log(x) * Math.LOG10E;
+};
 $(function () {
     "use strict";
 
   var labels, bgColors, data;
 
-  var histogramVeriHesapla = (params) => {
+  var histogramVeriHesapla = function(params){
 
-    params.sort((a, b) => {
+    params.sort(function(a, b){
       return a - b;
     });
 
-    var parametreSayi = params.length;
-    var minDeger = parseFloat(params[0]), maxDeger = parseFloat(params[parametreSayi - 1]);
+    var parametreSayi = parseInt(params.length);
+    var minDeger = parseInt(params[0]), maxDeger = parseFloat(params[parametreSayi - 1]);
     var rank = maxDeger - minDeger;
     var k = 1.0 +  3.3 * Math.log10(parametreSayi);
     var grupGenisligi = Math.round(parseFloat(rank) / parseFloat(k));
-
-    var grupBaslangicSayisi = minDeger, grupBitisBaslangicSayisi = minDeger + grupGenisligi - 1;
-    var grupSayisi = Math.round((grupBitisBaslangicSayisi + grupGenisligi*Math.round(k - 1)) >= maxDeger ? k:(k + 1));
+    console.log(grupGenisligi);
+    grupGenisligi = grupGenisligi == 0 ? 1:grupGenisligi;
+    var grupBaslangicSayisi = parseInt(minDeger), grupBitisBaslangicSayisi = parseInt(minDeger) + (grupGenisligi > 1 ? grupGenisligi - 1.0:grupGenisligi);
+    var grupSayisi = Math.round((grupBitisBaslangicSayisi + grupGenisligi*Math.round(k - 1)) >= parseFloat(maxDeger) ? k:(k + 1));
 
     labels = Array(grupSayisi);
     bgColors = Array(grupSayisi);
@@ -33,7 +37,7 @@ $(function () {
       bgColors[i] = 'rgb(100, ' + (140 - i * 20) + ', ' + (210 - i * 20) +')';
 
       data[i] = 0;
-      params.forEach((item, j) => {
+      params.forEach(function(item, j){
         if(parseFloat(item) <= son && parseFloat(item) >= ilk)
           data[i]++;
       });

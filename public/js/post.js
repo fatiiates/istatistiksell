@@ -1,5 +1,5 @@
 let veri;
-$(() => {
+$(function() {
   document.form_sidebar.reset();
   if (Cookies.getJSON("data-set") != undefined) {
     veri = Cookies.getJSON("data-set")["data1"];
@@ -20,26 +20,26 @@ $(() => {
 
 // VERİYİ SAYFAYA DAHİL ETME
 
-var sayfayaDahilEt = (islem, mesaj) => {
+var sayfayaDahilEt = function(islem, mesaj){
   $('div[id="' + islem + '"]').children('h3').text(mesaj);
 }
 
 // MOD
 
-var modHesapla = (params) => {
+var modHesapla = function(params){
   let frekans = 0, tempFrekans = 0, mod = "";
   for (var i = 0; i < params.length; i++) {
 
     let tempModArray = mod.split(',');
     let controlVal = false;
-    tempModArray.forEach((element, j) => {
-      if(parseInt(element) == params[i])
+    tempModArray.forEach(function(element, j){
+      if(parseFloat(element) == params[i])
         controlVal = true;
     });
     if(controlVal)
       continue;
 
-    params.forEach((element, j) => {
+    params.forEach(function(element, j){
       if(params[i] == element)
         frekans++;
     });
@@ -63,11 +63,11 @@ var modHesapla = (params) => {
 
 // ARİTMEK ORTALAMA
 
-var aritmetikOrtHesapla = (params) =>  {
+var aritmetikOrtHesapla = function(params){
 
   var aritmetikOrt = 0;
 
-  params.forEach((item, i) => {
+  params.forEach(function(item, i){
     aritmetikOrt += parseFloat(item) / params.length;
   });
 
@@ -77,7 +77,7 @@ var aritmetikOrtHesapla = (params) =>  {
 
 // STANDART SAPMA
 
-var standartSapmaHesapla = (params) => {
+var standartSapmaHesapla = function(params){
 
   let aritmetikOrt = aritmetikOrtHesapla(params);
   return Math.sqrt(params.reduce(function (sq, n) {
@@ -87,10 +87,10 @@ var standartSapmaHesapla = (params) => {
 
 // MEDYAN
 
-var medyanHesapla = (params) => {
+var medyanHesapla = function(params){
 
   var medyan = 0, parametreSayi = params.length;
-  params.sort((a, b) => {
+  params.sort(function(a, b){
     return a - b;
   });
 
@@ -104,18 +104,18 @@ var medyanHesapla = (params) => {
 
 // VARYANS
 
-var varyansHesapla = (params) => {
+var varyansHesapla = function(params){
   return Math.pow(standartSapmaHesapla(params), 2);
 }
 
 // ORTALAMA MUTLAK SAPMA
 
-var ortalamaMutlakSapmaHesapla = (params) => {
+var ortalamaMutlakSapmaHesapla = function(params){
 
   let aritmetikOrt = aritmetikOrtHesapla(params);
   var parametreSayi = parseFloat(params.length);
   var toplam = 0;
-  params.forEach((item, i) => {
+  params.forEach(function(item, i){
     toplam += Math.abs(parseFloat(item) - parseFloat(aritmetikOrt));
   });
 
@@ -125,7 +125,7 @@ var ortalamaMutlakSapmaHesapla = (params) => {
 
 // DEĞİŞKEN KATSAYISI
 
-var degiskenKatsayisiHesapla = (params) => {
+var degiskenKatsayisiHesapla = function(params){
 
   let aritmetikOrt = parseFloat(aritmetikOrtHesapla(params));
   let standartSapma = parseFloat(standartSapmaHesapla(params));
@@ -136,12 +136,12 @@ var degiskenKatsayisiHesapla = (params) => {
 
 // HARMONİK ORTALAMA
 
-var harmonikOrtHesapla = (params) => {
+var harmonikOrtHesapla = function(params){
 
   var payda = 0.0;
   var parametreSayi = parseFloat(params.length);
 
-  params.forEach((item, i) => {
+  params.forEach(function(item, i){
     payda += 1.0 / parseFloat(item);
   });
 
@@ -151,12 +151,12 @@ var harmonikOrtHesapla = (params) => {
 
 // GEOMETRİK ORTALAMA
 
-var geometrikOrtHesapla = (params) => {
+var geometrikOrtHesapla = function(params){
 
   var carpim = 1.0;
   var parametreSayi = parseFloat(params.length);
 
-  params.forEach((item, i) => {
+  params.forEach(function(item, i){
     carpim *= parseFloat(item);
   });
 
@@ -169,9 +169,9 @@ var geometrikOrtHesapla = (params) => {
 
 
 // HİSTOGRAM VERİLERİNİN HESAPLANMASI
-var histogramVeriHesapla = (params) => {
+var histogramVeriHesapla = function(params){
 
-  params.sort((a, b) => {
+  params.sort(function(a, b){
     return a - b;
   });
 
@@ -188,7 +188,7 @@ var histogramVeriHesapla = (params) => {
     kolonlar[i][0] = grupBaslangicSayisi + grupGenisligi*i;
     kolonlar[i][1] = grupBitisBaslangicSayisi + grupGenisligi*i;
     kolonlar[i][2] = 0;
-    params.forEach((item, j) => {
+    params.forEach(function(item, j){
       if(parseFloat(item) <= kolonlar[i][1] && parseFloat(item) >= kolonlar[i][0])
         kolonlar[i][2]++;
     });
@@ -200,6 +200,5 @@ var histogramVeriHesapla = (params) => {
 
 AUTHORS: FATİH ATEŞ, ERDOĞAN TURPCU, EBRU YAŞAR
               © Copyright 2020
-
 
 */
