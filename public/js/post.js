@@ -5,7 +5,7 @@ $(function() {
     veri = Cookies.getJSON("data-set")["data1"];
 
     modHesapla(veri);
-    sayfayaDahilEt('mod', 'Mod: [' + JSON.parse(modHesapla(veri)).mod + '], Frekans: ' + JSON.parse(modHesapla(veri)).frekans);
+    sayfayaDahilEt('mod', JSON.parse(modHesapla(veri)).error == undefined ? ('Mod: [' + JSON.parse(modHesapla(veri)).mod + '], Frekans: ' + JSON.parse(modHesapla(veri)).frekans) : JSON.parse(modHesapla(veri)).error);
     sayfayaDahilEt('standart_sapma', 'Değer: ' + standartSapmaHesapla(veri) + ', yaklaşık: ' + Math.round(standartSapmaHesapla(veri)));
     sayfayaDahilEt('medyan', 'Değer: ' + medyanHesapla(veri) + ', yaklaşık: ' + Math.round(medyanHesapla(veri)));
     sayfayaDahilEt('varyans', 'Değer: ' + varyansHesapla(veri) + ', yaklaşık: ' + Math.round(varyansHesapla(veri)));
@@ -57,8 +57,11 @@ var modHesapla = function(params){
 
   mod = mod.substring(0, mod.length - 1);
 
-    // frekans tempde tutuluyor
-    return '{"mod":"' + mod + '","frekans":"' + tempFrekans + '"}';
+  if (tempFrekans <= 1)
+    return '{"error":" Tüm sayılar 1 kere tekrar ettiğinden mod yoktur. "}';
+
+  // frekans tempde tutuluyor
+  return '{"mod":"' + mod + '","frekans":"' + tempFrekans + '"}';
 }
 
 // ARİTMEK ORTALAMA

@@ -32,6 +32,10 @@ function cleanDataSet(val){
     data = data.substring(0, data.length - 1);
 
   data = data.split(',');
+  for (var i = 0; i < data.length; i++) {
+    data[i] = parseFloat(data[i]);
+  }
+
   return data;
 }
 
