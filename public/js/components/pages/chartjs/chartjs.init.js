@@ -32,7 +32,7 @@ $(function () {
     var grupGenisligi = Math.ceil(parseFloat(rank) / parseFloat(k)) ;
     grupGenisligi = grupGenisligi < 2 ? 2:grupGenisligi;
     var grupBaslangicSayisi = minDeger, grupBitisBaslangicSayisi = minDeger + grupGenisligi + (grupGenisligi > 1 ? -1:0);
-    var grupSayisi = Math.round(k)/*Math.round((grupBitisBaslangicSayisi + grupGenisligi * Math.round(k - 1)) > maxDeger ? k:(k + 1))*/;
+    var grupSayisi = Math.round((grupBitisBaslangicSayisi + grupGenisligi * Math.round(k - 1)) > maxDeger ? k:(k + 1));
 
     console.log(grupGenisligi);
     labels = Array(grupSayisi);
