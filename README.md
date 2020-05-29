@@ -4,7 +4,7 @@ Olasılık ve İstatistik dersi grup çalışması
 
 ## KURULUM
 
-Node.js'i bilgisyarınız aşağıdaki linkten indirip kurabilirsiniz  
+Node.js'i bilgisayarınıza aşağıdaki linkten indirip kurabilirsiniz  
 https://nodejs.org/en/  
 
 Node.js kurulduktan sonra reponun klonladığı klasöre komut satırı aracılığıyla girerek   
