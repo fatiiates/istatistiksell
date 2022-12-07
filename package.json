@@ -30,7 +30,7 @@
     "cookie-parser": "^1.4.5",
     "css-element-queries": "^1.2.3",
     "ejs": "^3.0.2",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "hover.css": "^2.3.2",
     "jquery": "^3.4.1",
     "js-cookie": "^2.2.1"
